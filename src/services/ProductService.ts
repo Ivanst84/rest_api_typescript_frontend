@@ -16,10 +16,9 @@ try {
         price: Number(data.price)
     
     })
-    
    if(result.success){
-       const url= `${import.meta.env.VITE_API_URL}/products`
-
+    const url = `${import.meta.env.VITE_API_URL}/products`;
+       console.log("result",url)
     await axios.post(url,{
             name: result.output.name,
             price: result.output.price
@@ -86,7 +85,7 @@ export async function getProducts() {
     export async function updateAvailability(id: Product['id']) {
         try {
             // Realizar la solicitud PATCH
-            const url = `${import.meta.env.VITE_API_URL}/products/${id}`;
+            const url = `${import.meta.env.VITE_API_URL}products/${id}`;
             await axios.patch(url);
             console.log(`Disponibilidad actualizada para el producto con ID ${id}`);
         } catch (error) {
